@@ -1,8 +1,8 @@
 CXX           = $(shell fltk-config --cxx)
 INCLUDE       = include
-CXXFLAGS      =  -Wall -Wextra $(addprefix -I,$(INCLUDE))
+CXXFLAGS      =  -Wall -Wextra $(shell fltk-config --use-gl --use-images --cxxflags ) $(addprefix -I,$(INCLUDE))
 LD            = $(CXX)
-LDFLAGS       =
+LDFLAGS       = $(shell fltk-config --use-gl --use-images --ldstaticflags )
 BUILD_FOLDER  = ./output
 OBJ_DIR       = $(BUILD_FOLDER)/objects
 TARGET        = $(BUILD_FOLDER)/EpsilonDFU.o
